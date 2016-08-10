@@ -42,7 +42,6 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class phpipam {
-
-
+class phpipam inherits phpipam::params {
+  class { 'phpipam::install': }
 }
