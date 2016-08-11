@@ -52,8 +52,8 @@ class phpipam (
 ) inherits phpipam::params {
 
   class { 'phpipam::install':
-    install_dir = $install_dir,
-    source_repo = $source_repo,
+    install_dir => $install_dir,
+    source_repo => $source_repo,
   } ->
   class { 'phpipam::config':
     user => $user,
