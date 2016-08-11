@@ -6,7 +6,7 @@ class phpipam::params {
   $user        = 'phpipam'
   $db          = 'phpipam'
 
-  case $::osfamily in {
+  case $::osfamily {
     'RedHat': {
       $php_ini = '/etc/php.ini'
     }
