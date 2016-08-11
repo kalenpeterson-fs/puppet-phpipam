@@ -42,6 +42,22 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class phpipam inherits phpipam::params {
-  class { 'phpipam::install': }
+class phpipam (
+  $pass        = undef,
+  $user        = $::phpipam::params::user,
+  $db          = $::phpipam::params::db,
+  $install_dir = $::phpipam::params::install_dir,
+  $source_repo = $::phpipam::params::source_repo
+
+) inherits phpipam::params {
+
+  class { 'phpipam::install':
+    install_dir = $install_dir,
+    source_repo = $source_repo,
+  } ->
+  class { 'phpipam::config':
+    user => $user,
+    pass => $pass,
+    db   => $db,
+  }
 }
